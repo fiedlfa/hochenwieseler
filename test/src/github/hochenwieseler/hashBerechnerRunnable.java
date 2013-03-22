@@ -39,11 +39,21 @@ public class hashBerechnerRunnable implements Runnable {
 	private void rechner(int laenge, int hashValue, String value) {
 		int expZahl = pow(31, laenge - 1);
 		if (laenge > 0) {
-			// Integer.Maxvalue - "zzzzzzz".hashCode() = 2031058437 etc.pp. Gerade die nächsten Zahlen als Optimierung sind extrem wichtig.
-			if (laenge <= 6
-					&& (hashValue <= 1461697985 || (laenge <= 5 && (hashValue < 2031058437 || (laenge <= 4 && (hashValue < 2143727999 || (laenge <= 3 && (hashValue < 2147362501 || (laenge <= 2 && (hashValue < 2147479743 || (laenge == 1 && hashValue < 2147483525))))))))))) {
-				return;
+			if (laenge < 7) {
+				// Integer.Maxvalue - "zzzzz".hashCode() = 2031058437 etc.pp.
+				if (laenge <= 5 && ((hashValue < 2031058437) 
+						|| (laenge <= 4 && (hashValue < 2143727999 
+								|| (laenge <= 3 && (hashValue < 2147362501 
+										|| (laenge <= 2 && (hashValue < 2147479743)))))))) {
+					return;
+				} 
+				if (laenge > 5 && (hashValue > 0 && hashValue + 2 * 'z' * expZahl > 0)) {
+					// 31 hoch laenge ist größer als die Summe von 31^laenge -1 +
+					// 31^laenge-2 ...
+					return;
+				}
 			}
+
 			for (int i = 'a'; i < 'z'; i++) {
 				rechner(laenge - 1, hashValue + (i * expZahl), value + (char) i);
 			}
