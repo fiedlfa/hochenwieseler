@@ -1,4 +1,5 @@
-﻿package github.hochenwieseler;import java.util.concurrent.BrokenBarrierException;
+﻿package github.hochenwieseler;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 /**
  * Ein Kurzer Berechner für integer Minvalue Werte ;)
@@ -19,7 +20,7 @@ public class Integer_MinValue
      */
     public static void main(String[] args)
     {
-        new Integer_MinValue().berechneMinValue(7);
+        new Integer_MinValue().berechneMinValue(8);
     }
     /**
      * Ein Kurzer Berechner für integer Minvalue Werte ;). Gibt die Werte auf der Konsole aus
