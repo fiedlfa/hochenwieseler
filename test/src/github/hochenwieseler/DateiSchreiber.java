@@ -22,7 +22,7 @@ public class DateiSchreiber {
 
 			// new FileWriter(file) - falls die Datei bereits existiert
 			// wird diese überschrieben
-			writer = new FileWriter(file);
+			writer = new FileWriter(file,true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
