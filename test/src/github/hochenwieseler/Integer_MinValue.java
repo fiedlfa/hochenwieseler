@@ -12,15 +12,14 @@ public class Integer_MinValue
     private CyclicBarrier barrier;
     private int _laenge;
     /**
-     * Ein Kurzer Berechner für integer Minvalue Werte ;). Gibt die Werte auf der Konsole aus     
-     * Analog zum intStarter.
-     * Sinvoll ist eine länge von 7. 
-     * dann kommen zwar nur wenige strings raus aber 8 dauert noch ewig ;)
-     * @param laenge die Ziellänge des Strings
+     * Ein Kurzer Berechner für integer Minvalue Werte ;). Gibt die Werte auf der Konsole aus
      */
     public static void main(String[] args)
     {
-        new Integer_MinValue().berechneMinValue(8);
+    	for(int i = 7; i < 12; i++)
+    	{
+        new Integer_MinValue().berechneMinValue(i);
+    	}
     }
     /**
      * Ein Kurzer Berechner für integer Minvalue Werte ;). Gibt die Werte auf der Konsole aus
