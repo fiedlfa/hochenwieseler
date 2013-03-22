@@ -19,7 +19,7 @@ public class Integer_MinValue
      */
     public static void main(String[] args)
     {
-        new Integer_MinValue().berechneMinValue(args[0].charAt(0));
+        new Integer_MinValue().berechneMinValue(7);
     }
     /**
      * Ein Kurzer Berechner für integer Minvalue Werte ;). Gibt die Werte auf der Konsole aus
@@ -39,6 +39,8 @@ public class Integer_MinValue
     public void berechneMinValue(int laenge)
     {
         long startzeit = System.nanoTime();
+        System.out.println("Start ;)");
+        
         int anzahl_Treads = 2* 24 + 1; // alle kleinen Buchstaben alle große und der "master" selber
         barrier = new CyclicBarrier(anzahl_Treads+1);
         _laenge = laenge;
