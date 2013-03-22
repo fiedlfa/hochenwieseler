@@ -11,12 +11,14 @@ public class hashBerechnerRunnable implements Runnable {
 	private int _anfangsbuchstabe;
 	CyclicBarrier _barrier;
 	int _laenge;
+	DateiSchreiber dateischreiber;
 
 	public hashBerechnerRunnable(char anfangsbuchstabe, CyclicBarrier barrier,
 			int laenge) {
 		_anfangsbuchstabe = anfangsbuchstabe;
 		_barrier = barrier;
 		_laenge = laenge;
+		dateischreiber = new DateiSchreiber(""+anfangsbuchstabe);
 	}
 
 	public void run() {
@@ -59,7 +61,7 @@ public class hashBerechnerRunnable implements Runnable {
 			}
 			rechner(laenge - 1, hashValue + (' ' * expZahl), value + ' ');
 		} else if (hashValue == Integer.MIN_VALUE) {
-			System.out.println(value);
+			dateischreiber.schreibe(value);
 		}
 
 	}
