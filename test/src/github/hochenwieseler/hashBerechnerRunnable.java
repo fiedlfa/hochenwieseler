@@ -38,11 +38,12 @@ public class hashBerechnerRunnable implements Runnable
      */
     private void rechner(int laenge, int hashValue,String value)
     {
+    	int expZahl = pow(31,laenge -1);
         if(laenge > 0)
         {
-        	if(laenge < 5)
+        	if(laenge < 7)
         	{
-        		if(hashValue < 0 || (hashValue > 0 && hashValue + pow (31,laenge) > 0)) // 31 hoch laenge ist größer als die Summe von 31^laenge -1 + 31^laenge-2 ... 
+        		if((hashValue > 0 && hashValue + 2*'z'*expZahl > 0)) // 31 hoch laenge ist größer als die Summe von 31^laenge -1 + 31^laenge-2 ... 
         				{
         			return;
         				}
@@ -50,9 +51,9 @@ public class hashBerechnerRunnable implements Runnable
         	
             for (int i = 'a'; i < 'z'; i++)
             {
-                rechner(laenge -1, hashValue + (i * pow(31,laenge-1)) , value + (char)i );
+                rechner(laenge -1, hashValue + (i * expZahl) , value + (char)i );
             }
-            rechner(laenge -1, hashValue + (' ' * pow(31,laenge-1)) , value + ' ' );
+            rechner(laenge -1, hashValue + (' ' * expZahl) , value + ' ' );
         }
         else if (hashValue == Integer.MIN_VALUE)
         {
