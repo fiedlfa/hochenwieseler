@@ -40,6 +40,14 @@ public class hashBerechnerRunnable implements Runnable
     {
         if(laenge > 0)
         {
+        	if(laenge < 5)
+        	{
+        		if(hashValue < 0 || (hashValue > 0 && hashValue + pow (31,laenge) > 0)) // 31 hoch laenge ist größer als die Summe von 31^laenge -1 + 31^laenge-2 ... 
+        				{
+        			return;
+        				}
+        	}
+        	
             for (int i = 'a'; i < 'z'; i++)
             {
                 rechner(laenge -1, hashValue + (i * pow(31,laenge-1)) , value + (char)i );
