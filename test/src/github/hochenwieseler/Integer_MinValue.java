@@ -16,9 +16,9 @@ public class Integer_MinValue
      */
     public static void main(String[] args)
     {
-    //	for(int i = 7; i < 12; i++)
+    	for(int i = 7; i < 12; i++)
     	{
-        new Integer_MinValue().berechneMinValue(7);
+        new Integer_MinValue().berechneMinValue(i);
     	}
     }
     /**

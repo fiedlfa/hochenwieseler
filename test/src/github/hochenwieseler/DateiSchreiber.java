@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 public class DateiSchreiber {
 	private FileWriter writer;
+	int i = 0;
 
 	public DateiSchreiber(String Name) {
 		File file = new File("IntegerMinValue " + Name + ".txt");
@@ -21,7 +22,7 @@ public class DateiSchreiber {
 
 			// new FileWriter(file) - falls die Datei bereits existiert
 			// wird diese überschrieben
-			writer = new FileWriter(file, true);
+			writer = new FileWriter(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -29,9 +30,18 @@ public class DateiSchreiber {
 
 	public void schreibe(String string) {
 		try {
-			writer.write(string);
+			writer.write(string + ";");
+			i++;
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		if (i >= 1000) {
+			i = 0;
+			try {
+				writer.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

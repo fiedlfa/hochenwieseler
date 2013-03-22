@@ -24,6 +24,7 @@ public class hashBerechnerRunnable implements Runnable {
 	public void run() {
 		rechner(_laenge - 1, _anfangsbuchstabe * pow(31, _laenge - 1), ""
 				+ (char) _anfangsbuchstabe);
+		dateischreiber.bye();
 		try {
 			_barrier.await();
 		} catch (InterruptedException e) {
